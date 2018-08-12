@@ -27,7 +27,7 @@ git clone https://github.com/ZerBea/hcxtools.git
 
 cd hcxtools
 make
-make Install
+make install
 
 cd
 
