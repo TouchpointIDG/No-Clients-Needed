@@ -19,7 +19,7 @@ apt update
 apt upgrade
 
 # Install all dependencies
-apt install openssl libssl-dev opencl-headers zlib1g-dev libpcap0.8-dev libcurl-dev libcurl4-openssl-dev
+apt install -y openssl libssl-dev opencl-headers zlib1g-dev libpcap0.8-dev libcurl4-openssl-dev
 
 # Clone all necessary repositories
 git clone https://github.com/ZerBea/hcxdumptool.git
