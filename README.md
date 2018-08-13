@@ -10,3 +10,9 @@ cd No-Clients-Needed/
 chmod +x install.sh
 sudo ./install.sh
 ```
+
+## Steps to run
+```
+chmod +x wpa-attack.sh
+sudo ./wpa-attack.sh
+```
