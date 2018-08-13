@@ -24,6 +24,7 @@ apt install -y openssl libssl-dev opencl-headers zlib1g-dev libpcap0.8-dev libcu
 # Clone all necessary repositories
 git clone https://github.com/ZerBea/hcxdumptool.git
 git clone https://github.com/ZerBea/hcxtools.git
+git clone https://github.com/hashcat/hashcat.git
 
 cd hcxtools
 make
@@ -32,5 +33,11 @@ make install
 cd
 
 cd hcxdumptool
+make
+make install
+
+cd
+
+cd hashcat
 make
 make install
