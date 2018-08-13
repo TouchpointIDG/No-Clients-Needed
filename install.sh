@@ -15,8 +15,7 @@ fi
 
 # Change to home directory
 cd
-apt update
-apt upgrade
+apt update && apt upgrade -y
 
 # Install all dependencies
 apt install -y openssl libssl-dev opencl-headers zlib1g-dev libpcap0.8-dev libcurl4-openssl-dev
