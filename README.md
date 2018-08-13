@@ -1,5 +1,7 @@
 # No Clients Needed WPA Attack
-A group of roll up scripts for the newly disclosed WPA client-less attack
+A group of roll up scripts for the newly disclosed WPA client-less attack. This is a bandaid before we make a better and more effecient solution.
+
+This has been fully tested inside of a fresh Kali Virtualbox install. 
 
 ## Steps to install
 ```
